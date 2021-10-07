@@ -1,6 +1,6 @@
 # clean-code-javascript (edited)
 
-## From [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript#objects-and-data-structures) by [Ryan McDermott](https://github.com/ryanmcdermott)
+## From [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) by [Ryan McDermott](https://github.com/ryanmcdermott)
 
 ## Table of Contents
 

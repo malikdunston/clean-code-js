@@ -29,8 +29,8 @@ improvement. Beat up the code instead!
 ## TOC
 
 0. [Home](readme.md)
-1. [Introduction](introduction.md)
-2. [Variables](variables.md)*
+1. [Introduction](introduction.md)*
+2. [Variables](variables.md)
 3. [Functions](functions.md)
 4. [Objects and Data Structures](objects-and-data-structures.md)
 5. [Classes](classes.md)
