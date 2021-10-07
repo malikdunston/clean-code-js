@@ -1,0 +1,86 @@
+## [07](#toc): **Testing**
+
+Testing is more important than shipping. If you have no tests or an
+inadequate amount, then every time you ship code you won't be sure that you
+didn't break anything. Deciding on what constitutes an adequate amount is up
+to your team, but having 100% coverage (all statements and branches) is how
+you achieve very high confidence and developer peace of mind. This means that
+in addition to having a great testing framework, you also need to use a
+[good coverage tool](https://gotwarlost.github.io/istanbul/).
+
+There's no excuse to not write tests. There are [plenty of good JS test frameworks](https://jstherightway.org/#testing-tools), so find one that your team prefers.
+When you find one that works for your team, then aim to always write tests
+for every new feature/module you introduce. If your preferred method is
+Test Driven Development (TDD), that is great, but the main point is to just
+make sure you are reaching your coverage goals before launching any feature,
+or refactoring an existing one.
+
+### Single concept per test
+
+**Bad:**
+
+```javascript
+import assert from "assert";
+
+describe("MomentJS", () => {
+  it("handles date boundaries", () => {
+    let date;
+
+    date = new MomentJS("1/1/2015");
+    date.addDays(30);
+    assert.equal("1/31/2015", date);
+
+    date = new MomentJS("2/1/2016");
+    date.addDays(28);
+    assert.equal("02/29/2016", date);
+
+    date = new MomentJS("2/1/2015");
+    date.addDays(28);
+    assert.equal("03/01/2015", date);
+  });
+});
+```
+
+**Good:**
+
+```javascript
+import assert from "assert";
+
+describe("MomentJS", () => {
+  it("handles 30-day months", () => {
+    const date = new MomentJS("1/1/2015");
+    date.addDays(30);
+    assert.equal("1/31/2015", date);
+  });
+
+  it("handles leap year", () => {
+    const date = new MomentJS("2/1/2016");
+    date.addDays(28);
+    assert.equal("02/29/2016", date);
+  });
+
+  it("handles non-leap year", () => {
+    const date = new MomentJS("2/1/2015");
+    date.addDays(28);
+    assert.equal("03/01/2015", date);
+  });
+});
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+## TOC
+
+0. [Home](readme.md)
+1. [Introduction](introduction.md)
+2. [Variables](variables.md)
+3. [Functions](functions.md)
+4. [Objects and Data Structures](objects-and-data-structures.md)
+5. [Classes](classes.md)
+6. [SOLID](solid.md)
+7. [Testing](testing.md)*
+8. [Concurrency](concurrency.md)
+9. [Error Handling](error-handling.md)
+10. [Formatting](formatting.md)
+11. [Comments](comments.md)
+12. [Translation](translation.md)
